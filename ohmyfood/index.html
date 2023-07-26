@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS_images/styles.css">
     <script src="https://kit.fontawesome.com/5fe30726f7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
     <title>Ohmyfood</title>
 </head>
 <body>
     <header>
-        <a href="#"><i class="fa-solid fa-arrow-left"></i></a>
-        <img src="CSS_images/images/logo/ohmyfood.png" alt="logo de ohmyfood">
+        <div class="bandeau">
+            <a href="#"><i class="fa-solid fa-arrow-left"></i></a>
+            <img src="CSS_images/images/logo/ohmyfood.png" alt="logo de ohmyfood">
+        </div>
         <div class="localisation">
             <i class="fa-solid fa-location-dot"></i>
             <p>Paris, Belleville</p>
@@ -20,22 +25,24 @@
         <section class="annonce">
             <h1>Réservez le menu qui vous convient</h1>
             <p>Découvrez des restaurants d'exception, sélectionnés par nos soins.</p>
-            <a href="">Explorer nos restaurants</a>
+            <button>
+                <a href="">Explorer nos restaurants</a>
+            </button>
         </section>
         <section class="fonctionnement">
             <h2>Fonctionnement</h2>
             <div class="etape">
-                <div></div>
+                <div class="gommette"><p>1</p></div>
                 <i class="fa-solid fa-mobile-screen-button"></i>
                 <h3>Choisissez un restaurant</h3>
             </div>
             <div class="etape">
-                <div></div>
+                <div class="gommette"><p>2</p></div>
                 <i class="fa-solid fa-list-ul"></i>
                 <h3>Composer votre menu</h3>
             </div>
             <div class="etape">
-                <div></div>
+                <div class="gommette"><p>3</p></div>
                 <i class="fa-solid fa-store"></i>
                 <h3>Déguster au restaurant</h3>
             </div>

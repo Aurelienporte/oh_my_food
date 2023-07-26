@@ -1,0 +1,169 @@
+/****** GENERAL ******/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+$ap-footer : #353535;
+$ap :#F6F6F6;
+$bouton :#9356DC;
+
+@mixin petit-texte{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+body{
+    width: 100vw;
+}
+section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+h1, h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+}
+h2{
+    align-self: flex-start;
+}
+a{
+    text-decoration: none;
+}
+
+/****** HEADER ******/
+
+.bandeau{
+    height: 63px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    & a{
+        position: absolute;
+        left: 17px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        .fa-arrow-left{
+            font-size: 16px;
+            color: $ap-footer;
+        }
+    }
+    & img{
+        height: 36px;
+    }
+}
+.localisation{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    background-color: #eaeaea;
+    & .fa-location-dot{
+        font-size: 16px;
+        color: $ap-footer;
+    }
+    & p{
+        @include petit-texte;
+        color: $ap-footer;
+    }
+}
+
+/****** MAIN ******/
+
+.annonce{
+    background-color: $ap;
+    & h1{
+        width: 66%;
+        margin: 40px 0 14px;
+        text-align: center;
+    }
+    & p{
+        margin-bottom: 29px;
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+    }
+    & button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 218px;
+        height: 50px;
+        border-radius: 25px;
+        margin-bottom: 57px;
+        background: linear-gradient(  #FF79DA, $bouton), $bouton;
+        box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);
+        border: none;
+            & a{
+            text-align: center;
+            color: white;
+            @include petit-texte;
+        }
+    }
+}
+.fonctionnement{
+    gap: 25px;
+    padding: 50px 20px 68px ;
+}
+.etape{
+    display: flex;
+    // justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    height: 72px;
+    width: 323px;
+    margin-left: 12px;
+    border-radius: 20px;
+    background-color: $ap;
+    box-shadow: 0 4px 15px 0 rgba(0,0,0,0.15);
+    & .gommette{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 24px;
+        width: 24px;
+        position: absolute;
+        left: -12px;
+        border-radius: 50%;
+        background-color: $bouton;
+        & p{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 17px;
+        color: white;
+        }
+    }
+    & .fa-solid{
+        width: 60px;
+        margin-left: 12px;
+        display: flex;
+        justify-content: center;
+        
+        color: #7e7e7e;
+    }
+    & .fa-mobile-screen-button{
+        margin-bottom: 6px;
+        font-size: 20px;
+    }
+    & .fa-list-ul{
+        margin-bottom: 1px;
+        font-size: 16px;
+    }
+    & .fa-store{
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+    & h3{
+        @include petit-texte;
+    }
+}
