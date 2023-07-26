@@ -27,6 +27,7 @@ h2 {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 /****** HEADER ******/
@@ -165,6 +166,55 @@ a {
 .etape h3 {
   font-weight: 500;
   font-size: 16px;
+  line-height: 19px;
+}
+
+.restaurants {
+  display: flex;
+  flex-flow: column;
+  gap: 18px;
+  align-items: center;
+  padding: 57px 17px 66px;
+  background-color: #F6F6F6;
+}
+.restaurants .carte {
+  width: 100%;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.restaurants .carte a {
+  display: block;
+  position: relative;
+  height: 100%;
+}
+.restaurants .carte .badge {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: 1;
+  background-color: #99E2D0;
+  color: #008766;
+}
+.restaurants .carte img {
+  height: 174px;
+  width: 100%;
+  object-fit: cover;
+}
+.restaurants .carte .legende {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 25px 0 13px;
+}
+.restaurants .carte .legende h3 {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+}
+.restaurants .carte .legende p {
+  font-weight: 300;
+  font-size: 17px;
   line-height: 19px;
 }
 

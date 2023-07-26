@@ -32,6 +32,7 @@ h2{
 }
 a{
     text-decoration: none;
+    color: black;
 }
 
 /****** HEADER ******/
@@ -165,5 +166,54 @@ a{
     }
     & h3{
         @include petit-texte;
+    }
+}
+.restaurants{
+    display: flex;
+    flex-flow: column;
+    gap:18px;
+    align-items: center;
+    padding: 57px 17px 66px;
+    background-color: $ap;
+
+    & .carte{
+        width: 100%;
+        border-radius: 15px;
+        background-color: white;
+        box-shadow: 0 4px 15px 0 rgba(0,0,0,0.10);
+        & a{
+            display: block;
+            position: relative;
+            height: 100%;
+        }
+        & .badge{
+            position: absolute;
+            top: 13px;
+            right: 13px;
+            z-index: 1;
+            background-color: #99E2D0;
+            color: #008766;
+        }
+        & img{
+            height: 174px;
+            width: 100%;
+            object-fit: cover;
+        }
+        & .legende{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 25px 0 13px;
+            & h3{
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 21px;
+            }
+            & p{
+                font-weight: 300;
+                font-size: 17px;
+                line-height: 19px;
+            }
+        }
     }
 }
