@@ -178,21 +178,25 @@ a {
   background-color: #F6F6F6;
 }
 .restaurants .carte {
-  width: 100%;
+  width: 340px;
   border-radius: 15px;
   background-color: white;
   box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
 }
 .restaurants .carte a {
-  display: block;
+  display: flex;
+  flex-flow: column;
   position: relative;
-  height: 100%;
 }
 .restaurants .carte .badge {
   position: absolute;
   top: 13px;
   right: 13px;
-  z-index: 1;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  padding: 7px 12px 5px;
   background-color: #99E2D0;
   color: #008766;
 }
@@ -200,14 +204,17 @@ a {
   height: 174px;
   width: 100%;
   object-fit: cover;
+  object-position: bottom;
+  border-radius: 15px 15px 0 0;
 }
 .restaurants .carte .legende {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 25px 0 13px;
+  padding: 17px 25px 17px 13px;
 }
 .restaurants .carte .legende h3 {
+  margin-bottom: 4px;
   font-weight: 700;
   font-size: 18px;
   line-height: 21px;
@@ -217,5 +224,54 @@ a {
   font-size: 17px;
   line-height: 19px;
 }
+.restaurants .carte .legende .coeur {
+  align-self: flex-start;
+  font-weight: 300;
+  margin-top: 3px;
+  font-size: 22px;
+}
+.restaurants .carte:nth-child(3) img {
+  object-position: 0 60%;
+}
+.restaurants .carte:nth-child(3) .coeur {
+  color: #9356DC;
+}
 
-/*# sourceMappingURL=styles.CSS.map */
+/****** Footer ******/
+footer {
+  background-color: #353535;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 25px;
+}
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+}
+footer ul {
+  display: flex;
+  flex-flow: column;
+  gap: 7px;
+  list-style-type: none;
+}
+footer ul li a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+}
+footer ul li a .fa-solid {
+  font-size: 16px;
+  margin-right: 12px;
+}
+footer ul li:nth-child(3) a, footer ul li:nth-child(4) a {
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=styles.css.map */

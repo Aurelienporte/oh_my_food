@@ -17,6 +17,9 @@ $bouton :#9356DC;
 body{
     width: 100vw;
 }
+// main{
+//     width: 100%;
+// }
 section{
     display: flex;
     flex-flow: column;
@@ -177,20 +180,24 @@ a{
     background-color: $ap;
 
     & .carte{
-        width: 100%;
+        width: 340px;
         border-radius: 15px;
         background-color: white;
         box-shadow: 0 4px 15px 0 rgba(0,0,0,0.10);
         & a{
-            display: block;
+            display: flex;
+            flex-flow: column;
             position: relative;
-            height: 100%;
         }
         & .badge{
             position: absolute;
             top: 13px;
             right: 13px;
-            z-index: 1;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            text-align: center;
+            padding: 7px 12px 5px;
             background-color: #99E2D0;
             color: #008766;
         }
@@ -198,13 +205,16 @@ a{
             height: 174px;
             width: 100%;
             object-fit: cover;
+            object-position: bottom;
+            border-radius: 15px 15px 0 0 ;
         }
         & .legende{
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 25px 0 13px;
+            padding: 17px 25px 17px 13px;
             & h3{
+                margin-bottom: 4px;
                 font-weight: 700;
                 font-size: 18px;
                 line-height: 21px;
@@ -214,6 +224,55 @@ a{
                 font-size: 17px;
                 line-height: 19px;
             }
+            & .coeur{
+                align-self: flex-start;
+                font-weight: 300;
+                margin-top: 3px;
+                font-size: 22px;
+            }
+        }
+    }
+    & .carte:nth-child(3){
+        img{
+        object-position: 0 60%;
+        }
+        .coeur{
+            color: $bouton;
+        }
+
+    }
+}
+/****** Footer ******/
+footer{
+    background-color: $ap-footer;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 25px;
+    & h3{
+        font-family: 'Shrikhand', cursive;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 26px;
+        color: white;
+    }
+    & ul{
+        display: flex;
+        flex-flow: column;
+        gap: 7px;
+        list-style-type: none;
+        & li a{
+            @include petit-texte;
+            color: white;
+        }
+        & li a .fa-solid{
+            font-size: 16px;
+            margin-right: 12px;
+        }
+        & li:nth-child(3) a, li:nth-child(4) a{
+            font-weight: 400;
         }
     }
 }
