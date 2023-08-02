@@ -115,12 +115,13 @@ a{
         font-weight: 300;
         font-size: 18px;
         line-height: 21px;
+        color: $ap-footer;
         text-align: center;
     }
 
     /****** Styles et animation survol bouton ******/
 
-    & button{
+    & .bouton{
         @include flex-centre;
         width: 218px;
         height: 50px;
@@ -136,7 +137,7 @@ a{
             @include petit-texte;
         }  
     }
-    & button:hover{
+    & .bouton:hover{
         background: linear-gradient(  #ff89ea, #a366ec ), $principale;
         box-shadow: 0 8px 10px 0 rgba(0,0,0,0.30);
         transform: scale(1.05);
@@ -146,8 +147,13 @@ a{
 /****** Section fonctionnement avec etapes ******/
 
 .fonctionnement{
-    gap: 25px;
+    gap: 28px;
     padding: 50px 20px 68px ;
+}
+.conteneur-etapes{
+    @include flex-centre;
+    flex-flow: column;
+    gap: 25px;
 }
 .etape{
     display: flex;
@@ -208,6 +214,11 @@ a{
     align-items: center;
     padding: 57px 17px 66px;
     background-color: $ap;
+    & .conteneur-cartes{
+        @include flex-centre;
+        flex-flow: column;
+        gap: 18px;
+    }
     & .carte{
         width: 340px;
         border-radius: 15px;
@@ -301,4 +312,45 @@ a{
 }
 .conteneur-coeurs:hover .cache{
     height: 0;
+}
+
+/********** Main Homepage DESKTOP *********/
+@media (min-width: 1024px){
+    .annonce{
+        h1{
+        font-size: 40px;
+        line-height: 47px;
+        }
+    }
+    .fonctionnement{
+        padding: 50px 180px;
+    }
+    .conteneur-etapes{
+        flex-flow: row;
+        width: 100%;
+        & .etape{
+            flex-basis: 300px ;
+            flex-grow: 1;
+            flex-shrink: 1;
+        }
+    }
+    .restaurants{
+        padding: 30px 180px;
+        & .conteneur-cartes{
+        flex-flow: row wrap;
+        gap: 50px 100px;
+        width: 100%;
+            & .carte{
+                flex-basis: calc(50% - 100px);
+                flex-grow: 1;
+                flex-shrink: 1;
+            }
+            & .carte img{
+                object-position: 0 60%;
+            }
+            & .legende p{
+                line-height: 20px;
+            }
+        }
+    } 
 }

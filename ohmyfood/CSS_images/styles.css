@@ -94,7 +94,6 @@ a {
     transform: rotate(360deg);
   }
 }
-/****** HEADER ******/
 /****** MAIN ******/
 .annonce {
   background-color: #F6F6F6;
@@ -110,9 +109,10 @@ a {
   font-weight: 300;
   font-size: 18px;
   line-height: 21px;
+  color: #353535;
   text-align: center;
 }
-.annonce button {
+.annonce .bouton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,14 +125,14 @@ a {
   border: none;
   transition: all 400ms ease;
 }
-.annonce button a {
+.annonce .bouton a {
   text-align: center;
   color: white;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
 }
-.annonce button:hover {
+.annonce .bouton:hover {
   background: linear-gradient(#ff89ea, #a366ec), #9356DC;
   box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
   transform: scale(1.05);
@@ -140,8 +140,16 @@ a {
 
 /****** Section fonctionnement avec etapes ******/
 .fonctionnement {
-  gap: 25px;
+  gap: 28px;
   padding: 50px 20px 68px;
+}
+
+.conteneur-etapes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 25px;
 }
 
 .etape {
@@ -205,6 +213,13 @@ a {
   align-items: center;
   padding: 57px 17px 66px;
   background-color: #F6F6F6;
+}
+.restaurants .conteneur-cartes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+  gap: 18px;
 }
 .restaurants .carte {
   width: 340px;
@@ -301,6 +316,43 @@ a {
   height: 0;
 }
 
-/****** FOOTER ******/
+/********** Main Homepage DESKTOP *********/
+@media (min-width: 1024px) {
+  .annonce h1 {
+    font-size: 40px;
+    line-height: 47px;
+  }
+  .fonctionnement {
+    padding: 50px 180px;
+  }
+  .conteneur-etapes {
+    flex-flow: row;
+    width: 100%;
+  }
+  .conteneur-etapes .etape {
+    flex-basis: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .restaurants {
+    padding: 30px 180px;
+  }
+  .restaurants .conteneur-cartes {
+    flex-flow: row wrap;
+    gap: 50px 100px;
+    width: 100%;
+  }
+  .restaurants .conteneur-cartes .carte {
+    flex-basis: calc(50% - 100px);
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .restaurants .conteneur-cartes .carte img {
+    object-position: 0 60%;
+  }
+  .restaurants .conteneur-cartes .legende p {
+    line-height: 20px;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */
