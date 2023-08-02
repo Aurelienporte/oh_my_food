@@ -1,0 +1,76 @@
+/****** GENERAL ******/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+$principale :#9356DC;
+$couleur-2: #FF79DA;
+$couleur-3: #99E2D0;
+$ap-footer : #353535;
+$ap :#F6F6F6;
+
+@mixin petit-texte{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+body{
+    width: 100vw;
+    position: relative;
+}
+section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+h1, h2{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+}
+h2{
+    align-self: flex-start;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/****** FOOTER ******/
+
+footer{
+    background-color: $ap-footer;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 25px;
+    & h3{
+        font-family: 'Shrikhand', cursive;
+        font-weight: 400;
+        font-style: italic;
+        font-size: 18px;
+        line-height: 26px;
+        color: white;
+    }
+    & ul{
+        display: flex;
+        flex-flow: column;
+        gap: 7px;
+        list-style-type: none;
+        & li a{
+            @include petit-texte;
+            color: white;
+        }
+        & li a .fa-solid{
+            font-size: 16px;
+            margin-right: 12px;
+        }
+        & li:nth-child(3) a, li:nth-child(4) a{
+            font-weight: 400;
+        }
+    }
+}
