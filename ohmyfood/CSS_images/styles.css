@@ -78,6 +78,7 @@ a {
 /****** MAIN ******/
 .annonce {
   background-color: #F6F6F6;
+  /****** Styles et animation survol bouton ******/
 }
 .annonce h1 {
   width: 66%;
@@ -99,9 +100,10 @@ a {
   height: 50px;
   border-radius: 25px;
   margin-bottom: 57px;
-  background: linear-gradient(#FF79DA, #9356DC), #9356DC;
+  background: linear-gradient(#ff79da, #9356DC), #9356DC;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
   border: none;
+  transition: all 400ms ease;
 }
 .annonce button a {
   text-align: center;
@@ -110,7 +112,13 @@ a {
   font-size: 16px;
   line-height: 19px;
 }
+.annonce button:hover {
+  background: linear-gradient(#ff89ea, #a366ec), #9356DC;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
 
+/****** Section fonctionnement avec etapes ******/
 .fonctionnement {
   gap: 25px;
   padding: 50px 20px 68px;
@@ -169,6 +177,7 @@ a {
   line-height: 19px;
 }
 
+/****** restaurants ******/
 .restaurants {
   display: flex;
   flex-flow: column;
@@ -199,6 +208,7 @@ a {
   padding: 7px 12px 5px;
   background-color: #99E2D0;
   color: #008766;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
 }
 .restaurants .carte img {
   height: 174px;
@@ -224,20 +234,54 @@ a {
   font-size: 17px;
   line-height: 19px;
 }
-.restaurants .carte .legende .coeur {
-  align-self: flex-start;
-  font-weight: 300;
-  margin-top: 3px;
-  font-size: 22px;
-}
 .restaurants .carte:nth-child(3) img {
   object-position: 0 60%;
 }
-.restaurants .carte:nth-child(3) .coeur {
-  color: #9356DC;
+
+/****** Styles et animation remplissage coeur ******/
+.conteneur-coeurs {
+  align-self: flex-start;
+  margin-top: 3px;
+  position: relative;
+  height: 22px;
+  width: 22px;
+}
+.conteneur-coeurs .fa-heart, .conteneur-coeurs .cache {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.conteneur-coeurs .vide, .conteneur-coeurs .degrade {
+  font-size: 22px;
+}
+.conteneur-coeurs .vide {
+  z-index: 10;
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+.conteneur-coeurs .degrade {
+  background: linear-gradient(0deg, #ff79da, #9356DC), #9356DC;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.conteneur-coeurs.conteneur-coeurs .cache {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: all 500ms ease;
 }
 
-/****** Footer ******/
+.conteneur-coeurs:hover .vide {
+  opacity: 0;
+}
+
+.conteneur-coeurs:hover .cache {
+  height: 0;
+}
+
+/****** FOOTER ******/
 footer {
   background-color: #353535;
   display: flex;

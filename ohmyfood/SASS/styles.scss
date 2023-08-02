@@ -97,6 +97,9 @@ a{
         line-height: 21px;
         text-align: center;
     }
+
+    /****** Styles et animation survol bouton ******/
+
     & button{
         display: flex;
         justify-content: center;
@@ -105,23 +108,31 @@ a{
         height: 50px;
         border-radius: 25px;
         margin-bottom: 57px;
-        background: linear-gradient(  #FF79DA, $bouton), $bouton;
+        background: linear-gradient(  #ff79da, $bouton), $bouton;
         box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);
         border: none;
+        transition: all 400ms ease ;
             & a{
             text-align: center;
             color: white;
             @include petit-texte;
-        }
+        }  
     }
+    & button:hover{
+        background: linear-gradient(  #ff89ea, #a366ec ), $bouton;
+        box-shadow: 0 8px 10px 0 rgba(0,0,0,0.30);
+        transform: scale(1.05);
+    }  
 }
+
+/****** Section fonctionnement avec etapes ******/
+
 .fonctionnement{
     gap: 25px;
     padding: 50px 20px 68px ;
 }
 .etape{
     display: flex;
-    // justify-content: flex-start;
     align-items: center;
     position: relative;
     height: 72px;
@@ -171,6 +182,9 @@ a{
         @include petit-texte;
     }
 }
+
+/****** restaurants ******/
+
 .restaurants{
     display: flex;
     flex-flow: column;
@@ -178,7 +192,6 @@ a{
     align-items: center;
     padding: 57px 17px 66px;
     background-color: $ap;
-
     & .carte{
         width: 340px;
         border-radius: 15px;
@@ -200,13 +213,14 @@ a{
             padding: 7px 12px 5px;
             background-color: #99E2D0;
             color: #008766;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
         }
         & img{
             height: 174px;
             width: 100%;
             object-fit: cover;
             object-position: bottom;
-            border-radius: 15px 15px 0 0 ;
+            border-radius: 15px 15px 0 0;
         }
         & .legende{
             display: flex;
@@ -224,25 +238,57 @@ a{
                 font-size: 17px;
                 line-height: 19px;
             }
-            & .coeur{
-                align-self: flex-start;
-                font-weight: 300;
-                margin-top: 3px;
-                font-size: 22px;
-            }
         }
     }
-    & .carte:nth-child(3){
-        img{
+    & .carte:nth-child(3) img{
         object-position: 0 60%;
-        }
-        .coeur{
-            color: $bouton;
-        }
-
     }
 }
-/****** Footer ******/
+
+/****** Styles et animation remplissage coeur ******/
+
+.conteneur-coeurs{
+    align-self: flex-start;
+    margin-top: 3px;
+    position: relative;
+    height: 22px;
+    width: 22px;
+    .fa-heart, .cache{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .vide, .degrade{
+        font-size: 22px;
+    }
+    .vide{
+        z-index: 10;
+        opacity: 1;
+        transition: opacity 500ms ease;
+    }
+    .degrade{
+        background: linear-gradient(0deg,  #ff79da, $bouton), $bouton;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    &.conteneur-coeurs .cache{
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        transition: all 500ms ease;
+    }
+}
+.conteneur-coeurs:hover .vide{
+    opacity: 0;
+}
+.conteneur-coeurs:hover .cache{
+    height: 0;
+}
+
+/****** FOOTER ******/
+
 footer{
     background-color: $ap-footer;
     display: flex;
