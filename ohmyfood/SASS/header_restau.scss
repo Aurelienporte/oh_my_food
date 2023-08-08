@@ -1,0 +1,59 @@
+/****** GENERAL ******/
+
+$principale :#9356DC;
+$couleur-2: #FF79DA;
+$couleur-3: #99E2D0;
+$ap-footer : #353535;
+$ap :#F6F6F6;
+
+@mixin flex-centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin petit-texte{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+/****** HEADER SMARTHONE******/
+header{
+    grid-area: 1/1/3/2;
+}
+.bandeau{
+    @include flex-centre;
+    height: 63px;
+    position: relative;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.15);
+    & a{
+        position: absolute;
+        left: 17px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        text-decoration: none;
+        .fa-arrow-left{
+            font-size: 16px;
+            color: $ap-footer;
+        }
+    }
+    & img{
+        height: 36px;
+    }
+}
+.image-de-couverture{
+    width: 100%;
+    height: 275px;
+    object-fit: cover;
+}
+
+    /********** Header DESKTOP **********/
+
+@media (min-width: 1024px){
+    .bandeau{
+        height: 96px;
+    }
+}

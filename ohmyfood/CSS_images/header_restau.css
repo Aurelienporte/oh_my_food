@@ -1,0 +1,46 @@
+/****** GENERAL ******/
+/****** HEADER SMARTHONE******/
+header {
+  grid-area: 1/1/3/2;
+}
+
+.bandeau {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.bandeau a {
+  position: absolute;
+  left: 17px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  text-decoration: none;
+}
+.bandeau a .fa-arrow-left {
+  font-size: 16px;
+  color: #353535;
+}
+.bandeau img {
+  height: 36px;
+}
+
+.image-de-couverture {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+}
+
+/********** Header DESKTOP **********/
+@media (min-width: 1024px) {
+  .bandeau {
+    height: 96px;
+  }
+}
+
+/*# sourceMappingURL=header_restau.css.map */

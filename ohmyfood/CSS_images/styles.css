@@ -6,7 +6,6 @@
 }
 
 body {
-  width: 100vw;
   position: relative;
 }
 
@@ -41,7 +40,7 @@ a {
   left: 0;
   z-index: 10;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background-color: #99E2D0;
   visibility: hidden;
   animation: apparition 3s;
@@ -290,7 +289,7 @@ a {
   font-size: 22px;
 }
 .conteneur-coeurs .vide {
-  z-index: 10;
+  z-index: 6;
   opacity: 1;
   transition: opacity 500ms ease;
 }
@@ -340,6 +339,45 @@ a {
   .restaurants .conteneur-cartes {
     flex-flow: row wrap;
     gap: 50px 100px;
+    width: 100%;
+  }
+  .restaurants .conteneur-cartes .carte {
+    flex-basis: calc(50% - 100px);
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .restaurants .conteneur-cartes .carte img {
+    object-position: 0 60%;
+  }
+  .restaurants .conteneur-cartes .legende p {
+    line-height: 20px;
+  }
+}
+/********** Main Homepage TABLETTE *********/
+@media (min-width: 767px) and (max-width: 1023px) {
+  .annonce h1 {
+    width: 70%;
+    font-size: 32px;
+    line-height: 38px;
+  }
+  .fonctionnement {
+    padding: 50px 40px;
+  }
+  .conteneur-etapes {
+    flex-flow: row;
+    width: 100%;
+  }
+  .conteneur-etapes .etape {
+    flex-basis: 300px;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .restaurants {
+    padding: 30px 40px 60px;
+  }
+  .restaurants .conteneur-cartes {
+    flex-flow: row wrap;
+    gap: 40px 30px;
     width: 100%;
   }
   .restaurants .conteneur-cartes .carte {

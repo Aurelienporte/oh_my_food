@@ -1,0 +1,226 @@
+/****** GENERAL ******/
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+$principale :#9356DC;
+$couleur-2: #FF79DA;
+$couleur-3: #99E2D0;
+$ap-footer : #353535;
+$ap :#F6F6F6;
+
+@mixin petit-texte{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+}
+@mixin flex-centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    display: grid;
+    grid-template-rows: 283px 55px auto auto ;
+    grid-template-columns: 100%;
+}
+section{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+h1{
+    font-family: 'Shrikhand', cursive;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 40px;
+}
+h2{
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 19px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    position: relative;
+}
+h2::after{
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    content: "";
+    height: 3px;
+    width: 40px;
+    background-color: $couleur-3;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/********** Main SMARTPHONE **********/
+main{
+    grid-area:2/1/4/2;
+    z-index: 1;
+}
+.menu{
+    gap: 40px;
+    padding: 40px 13px;
+    background-color: $ap;
+    border-radius: 35px 35px 0 0;
+    & .nom{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 98%;
+    }
+    & .partie-menu{
+        gap: 23px;
+        width: 100%;
+    }
+    & .liste-plats{
+        display: flex;
+        flex-flow: column;
+        gap: 12px;
+        width: 100%;
+        & .mets{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 70px;
+            box-sizing: border-box;
+            list-style-type: none;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px 0 rgba(0,0,0,0.1);
+            overflow: hidden;
+            & .conteneur-description-prix{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width:100%;
+                min-width:100%;
+                padding: 13px 15px;
+                box-sizing: border-box;
+                transition: all 400ms ease;
+            }
+            & .description{
+                display: flex;
+                flex-flow: column;
+                gap: 5px;
+                width: 82%;
+            }
+            & h3{
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 21px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                flex-basis: 100%;
+            }
+            & p{
+                font-weight: 300;
+                font-size: 15px;
+                line-height: 18px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            & .prix{
+                align-self: flex-end;
+                text-align: right;
+                height: 100%;
+                box-sizing: border-box;
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 18px;
+            }
+            & .voyant-selection{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 59px;
+                border-radius: 0 15px 15px 0;
+                background-color:$couleur-3;
+            }
+            & .fa-solid.fa-check{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 20px;
+                width: 20px;
+                border-radius: 50%;
+                color: $couleur-3;
+                background-color: white;
+            }
+        }
+        & .mets:hover{
+            & .conteneur-description-prix{
+                width: calc(100% - 59px);
+                min-width: calc(100% - 59px);
+            }
+        }
+
+    }
+}
+/***** animation remplissage coeur *****/
+.conteneur-coeurs{
+    margin: 3px 24px 0 0;
+    position: relative;
+    height: 22px;
+    width: 22px;
+    & .fa-heart, .cache{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    & .vide, .degrade{
+        font-size: 22px;
+    }
+    & .vide{
+        z-index: 6;
+        opacity: 1;
+        transition: opacity 500ms ease;
+    }
+    & .cache{
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: $ap;
+        transition: all 500ms ease;
+    }
+    & .degrade{
+        background: linear-gradient(0deg,  $couleur-2, $principale), $principale;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+.conteneur-coeurs:hover .vide{
+    opacity: 0;
+}
+.conteneur-coeurs:hover .cache{
+    height: 0;
+}
+/***** bouton commander *****/
+main button{
+    width: 186px;
+    height: 50px;
+    border-radius: 25px;
+    background: linear-gradient(  $couleur-2, $principale), $principale;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);
+    border: none;
+    transition: all 400ms ease ;
+    color: white;
+    @include petit-texte;
+}
+main button:hover{
+    background: linear-gradient(  #ff89ea, #a366ec ), $principale;
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.30);
+    transform: scale(1.05);
+}  
