@@ -5,14 +5,86 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  position: relative;
-}
-
 section {
   display: flex;
   flex-flow: column;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/****** HEADER SMARTHONE******/
+.bandeau {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.bandeau a {
+  visibility: hidden;
+  position: absolute;
+  left: 17px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bandeau a .fa-arrow-left {
+  font-size: 16px;
+  color: #353535;
+}
+.bandeau img {
+  margin-top: 5px;
+  height: 30px;
+}
+
+.localisation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  gap: 17px;
+  background-color: #eaeaea;
+}
+.localisation .fa-location-dot {
+  font-size: 16px;
+  color: #353535;
+}
+.localisation p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #353535;
+}
+
+/********** Header DESKTOP **********/
+@media (min-width: 1024px) {
+  .bandeau {
+    height: 96px;
+  }
+  .bandeau img {
+    margin-top: 0;
+    height: 34px;
+  }
+}
+/********   Header TABLETTE     **********/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bandeau {
+    height: 75px;
+  }
+  .bandeau img {
+    margin-top: 0;
+    height: 34px;
+  }
+}
+body {
+  position: relative;
 }
 
 h1, h2 {
@@ -23,11 +95,6 @@ h1, h2 {
 
 h2 {
   align-self: flex-start;
-}
-
-a {
-  text-decoration: none;
-  color: black;
 }
 
 /****** LOADER ******/
@@ -96,6 +163,7 @@ a {
 /****** MAIN ******/
 .annonce {
   background-color: #F6F6F6;
+  padding: 0 0 57px 0;
   /****** Styles et animation survol bouton ******/
 }
 .annonce h1 {
@@ -118,7 +186,6 @@ a {
   width: 218px;
   height: 50px;
   border-radius: 25px;
-  margin-bottom: 57px;
   background: linear-gradient(#FF79DA, #9356DC), #9356DC;
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
   border: none;
@@ -130,11 +197,17 @@ a {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  transition: all 400ms ease;
 }
 .annonce .bouton:hover {
   background: linear-gradient(#ff89ea, #a366ec), #9356DC;
   box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
+  height: 52px;
+  width: 229px;
+  margin-bottom: -2px;
+}
+.annonce .bouton:hover a {
+  font-size: 18px;
 }
 
 /****** Section fonctionnement avec etapes ******/
@@ -317,9 +390,16 @@ a {
 
 /********** Main Homepage DESKTOP *********/
 @media (min-width: 1024px) {
+  body {
+    max-width: 1500px;
+    margin: auto;
+  }
   .annonce h1 {
     font-size: 40px;
     line-height: 47px;
+  }
+  .annonce .bouton {
+    cursor: pointer;
   }
   .fonctionnement {
     padding: 50px 180px;
@@ -392,5 +472,82 @@ a {
     line-height: 20px;
   }
 }
+/****** FOOTER ******/
+footer {
+  background-color: #353535;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 25px;
+}
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+}
+footer ul {
+  display: flex;
+  flex-flow: column;
+  gap: 7px;
+  list-style-type: none;
+}
+footer ul li a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+}
+footer ul li a .fa-solid {
+  font-size: 16px;
+  margin-right: 12px;
+}
+footer ul li:nth-child(3) a, footer ul li:nth-child(4) a {
+  font-weight: 400;
+}
 
-/*# sourceMappingURL=styles.css.map */
+/********** Footer DESKTOP **********/
+@media (min-width: 1024px) {
+  footer {
+    flex-flow: row-reverse;
+    align-items: flex-end;
+    height: 114px;
+    padding: 30px 25px;
+    box-sizing: border-box;
+  }
+  footer h3 {
+    width: 139px;
+  }
+  footer ul {
+    flex-flow: row nowrap;
+    gap: 15px;
+  }
+  footer ul li:nth-child(2) {
+    width: 190px;
+  }
+  footer ul li:nth-child(3), footer ul li:nth-child(4) {
+    width: 130px;
+  }
+}
+/********** Footer TABLETTE **********/
+@media (min-width: 768px) and (max-width: 1023px) {
+  footer {
+    padding: 30px 25px;
+  }
+  footer ul {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  footer ul li:nth-child(2) {
+    width: 190px;
+  }
+  footer ul li:nth-child(3), footer ul li:nth-child(4) {
+    width: 130px;
+  }
+}
+
+/*# sourceMappingURL=homepage_styles.css.map */

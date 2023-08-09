@@ -1,36 +1,7 @@
-/****** GENERAL ******/
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-$principale :#9356DC;
-$couleur-2: #FF79DA;
-$couleur-3: #99E2D0;
-$ap-footer : #353535;
-$ap :#F6F6F6;
-
-@mixin petit-texte{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-}
-@mixin flex-centre{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 body{
     display: grid;
     grid-template-rows: 283px 55px auto auto ;
     grid-template-columns: 100%;
-}
-section{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 }
 h1{
     font-family: 'Shrikhand', cursive;
@@ -55,12 +26,9 @@ h2::after{
     width: 40px;
     background-color: $couleur-3;
 }
-a{
-    text-decoration: none;
-    color: black;
-}
 
-/********** Main SMARTPHONE **********/
+/********** Main RESTAURANT SMARTPHONE **********/
+
 main{
     grid-area:2/1/4/2;
     z-index: 1;
@@ -85,12 +53,13 @@ main{
         flex-flow: column;
         gap: 12px;
         width: 100%;
-        & .mets{
+        & .mets{ 
             display: flex;
             justify-content: flex-start;
             align-items: center;
             width: 100%;
-            height: 70px;
+            height: 0;
+            opacity: 0;
             box-sizing: border-box;
             list-style-type: none;
             background-color: white;
@@ -111,7 +80,7 @@ main{
                 display: flex;
                 flex-flow: column;
                 gap: 5px;
-                width: 82%;
+                width: 93%;
             }
             & h3{
                 font-weight: 500;
@@ -120,7 +89,6 @@ main{
                 white-space: nowrap;
                 text-overflow: ellipsis;
                 overflow: hidden;
-                flex-basis: 100%;
             }
             & p{
                 font-weight: 300;
@@ -138,6 +106,7 @@ main{
                 font-weight: 700;
                 font-size: 15px;
                 line-height: 18px;
+                color: $ap-footer;
             }
             & .voyant-selection{
                 display: flex;
@@ -159,16 +128,46 @@ main{
                 background-color: white;
             }
         }
+        /***** Apparition progressive menu *****/
+        & .mets:nth-child(1){
+            animation: apparition .8s linear forwards ;
+        }
+        & .mets:nth-child(2){
+            animation: apparition .8s linear .4s forwards;
+        }
+        & .mets:nth-child(3){
+            animation: apparition .8s linear .7s forwards;
+        }
+        & .mets:nth-child(4){
+            animation: apparition .8s linear .9s forwards;
+        }
+
+/***** transition coche verte au survol *****/
+
         & .mets:hover{
             & .conteneur-description-prix{
                 width: calc(100% - 59px);
                 min-width: calc(100% - 59px);
             }
         }
-
     }
 }
+
+/***** animation apparition progressive *****/
+
+@keyframes apparition{
+    from{
+        opacity: 0;
+        height: 0;
+    }
+    to{
+        opacity: 1;
+        height: 70px;
+    }
+}
+
 /***** animation remplissage coeur *****/
+
 .conteneur-coeurs{
     margin: 3px 24px 0 0;
     position: relative;
@@ -207,7 +206,9 @@ main{
 .conteneur-coeurs:hover .cache{
     height: 0;
 }
+
 /***** bouton commander *****/
+
 main button{
     width: 186px;
     height: 50px;
@@ -222,5 +223,66 @@ main button{
 main button:hover{
     background: linear-gradient(  #ff89ea, #a366ec ), $principale;
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.30);
-    transform: scale(1.05);
-}  
+    height: 52px;
+    width: 195px;
+    margin-bottom: -2px;
+    font-size: 18px;
+}
+
+/**********      VERSION DESKTOP      **********/
+
+@media (min-width: 1024px){
+    body{
+    grid-template-rows: 439px 40px auto auto ;
+    max-width: 1500px;
+    margin: auto;
+    }
+    main{
+        width: 73.3%;
+        justify-self: center;
+    }
+    .menu{
+        border-radius: 40px 40px 0 0;
+        & .nom{
+            justify-content: center;
+            align-items: center;
+        }
+        & .partie-menu{
+            width: 60%;
+            & .mets{
+                cursor: pointer;    
+            }    
+        }
+    }
+    .conteneur-coeurs{
+        margin: 0 0 0 22px;
+        cursor: pointer;
+    }
+    main button{
+        cursor: pointer;
+    }
+}
+
+/**********     Version TABLETTE    **********/
+
+@media (min-width : 768px) and (max-width: 1023px){
+    body{
+        grid-template-rows: 355px 45px auto auto ;
+        main{
+            width: 90%;
+            justify-self: center;
+        }
+    }
+    .menu{
+        & .nom{
+            justify-content: center;
+            align-items: center;
+        }
+        & .partie-menu{
+            width: 80%;
+        }
+    }
+    .conteneur-coeurs{
+        margin: 0 0 0 22px;
+    }
+}

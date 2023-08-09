@@ -1,0 +1,448 @@
+/****** GENERAL ******/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/****** HEADER RESTAURANT SMARTHONE******/
+header {
+  grid-area: 1/1/3/2;
+}
+
+.bandeau {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63px;
+  position: relative;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+}
+.bandeau a {
+  position: absolute;
+  left: 17px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.bandeau a .fa-arrow-left {
+  font-size: 16px;
+  color: #353535;
+}
+.bandeau img {
+  height: 30px;
+  margin-top: 5px;
+}
+
+.image-de-couverture {
+  width: 100%;
+  height: 275px;
+  object-fit: cover;
+}
+
+/********** Header DESKTOP **********/
+@media (min-width: 1024px) {
+  .bandeau {
+    height: 96px;
+  }
+  .bandeau img {
+    margin-top: 0;
+    height: 34px;
+  }
+  .image-de-couverture {
+    height: 383px;
+  }
+}
+/********   Header TABLETTE     **********/
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bandeau {
+    height: 75px;
+  }
+  .bandeau img {
+    margin-top: 0;
+    height: 34px;
+  }
+  .image-de-couverture {
+    height: 325px;
+  }
+}
+body {
+  display: grid;
+  grid-template-rows: 283px 55px auto auto;
+  grid-template-columns: 100%;
+}
+
+h1 {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 40px;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+  align-self: flex-start;
+  position: relative;
+}
+
+h2::after {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  content: "";
+  height: 3px;
+  width: 40px;
+  background-color: #99E2D0;
+}
+
+/********** Main RESTAURANT SMARTPHONE **********/
+main {
+  grid-area: 2/1/4/2;
+  z-index: 1;
+}
+
+.menu {
+  gap: 40px;
+  padding: 40px 13px;
+  background-color: #F6F6F6;
+  border-radius: 35px 35px 0 0;
+}
+.menu .nom {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 98%;
+}
+.menu .partie-menu {
+  gap: 23px;
+  width: 100%;
+}
+.menu .liste-plats {
+  display: flex;
+  flex-flow: column;
+  gap: 12px;
+  width: 100%;
+  /***** Apparition progressive menu *****/
+  /***** transition coche verte au survol *****/
+}
+.menu .liste-plats .mets {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.menu .liste-plats .mets .conteneur-description-prix {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-width: 100%;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  transition: all 400ms ease;
+}
+.menu .liste-plats .mets .description {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+  width: 93%;
+}
+.menu .liste-plats .mets h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.menu .liste-plats .mets p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.menu .liste-plats .mets .prix {
+  align-self: flex-end;
+  text-align: right;
+  height: 100%;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  color: #353535;
+}
+.menu .liste-plats .mets .voyant-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 59px;
+  border-radius: 0 15px 15px 0;
+  background-color: #99E2D0;
+}
+.menu .liste-plats .mets .fa-solid.fa-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  color: #99E2D0;
+  background-color: white;
+}
+.menu .liste-plats .mets:nth-child(1) {
+  animation: apparition 0.8s linear forwards;
+}
+.menu .liste-plats .mets:nth-child(2) {
+  animation: apparition 0.8s linear 0.4s forwards;
+}
+.menu .liste-plats .mets:nth-child(3) {
+  animation: apparition 0.8s linear 0.7s forwards;
+}
+.menu .liste-plats .mets:nth-child(4) {
+  animation: apparition 0.8s linear 0.9s forwards;
+}
+.menu .liste-plats .mets:hover .conteneur-description-prix {
+  width: calc(100% - 59px);
+  min-width: calc(100% - 59px);
+}
+
+/***** animation apparition progressive *****/
+@keyframes apparition {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 70px;
+  }
+}
+/***** animation remplissage coeur *****/
+.conteneur-coeurs {
+  margin: 3px 24px 0 0;
+  position: relative;
+  height: 22px;
+  width: 22px;
+}
+.conteneur-coeurs .fa-heart, .conteneur-coeurs .cache {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.conteneur-coeurs .vide, .conteneur-coeurs .degrade {
+  font-size: 22px;
+}
+.conteneur-coeurs .vide {
+  z-index: 6;
+  opacity: 1;
+  transition: opacity 500ms ease;
+}
+.conteneur-coeurs .cache {
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: #F6F6F6;
+  transition: all 500ms ease;
+}
+.conteneur-coeurs .degrade {
+  background: linear-gradient(0deg, #FF79DA, #9356DC), #9356DC;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.conteneur-coeurs:hover .vide {
+  opacity: 0;
+}
+
+.conteneur-coeurs:hover .cache {
+  height: 0;
+}
+
+/***** bouton commander *****/
+main button {
+  width: 186px;
+  height: 50px;
+  border-radius: 25px;
+  background: linear-gradient(#FF79DA, #9356DC), #9356DC;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  border: none;
+  transition: all 400ms ease;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+main button:hover {
+  background: linear-gradient(#ff89ea, #a366ec), #9356DC;
+  box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3);
+  height: 52px;
+  width: 195px;
+  margin-bottom: -2px;
+  font-size: 18px;
+}
+
+/**********      VERSION DESKTOP      **********/
+@media (min-width: 1024px) {
+  body {
+    grid-template-rows: 439px 40px auto auto;
+    max-width: 1500px;
+    margin: auto;
+  }
+  main {
+    width: 73.3%;
+    justify-self: center;
+  }
+  .menu {
+    border-radius: 40px 40px 0 0;
+  }
+  .menu .nom {
+    justify-content: center;
+    align-items: center;
+  }
+  .menu .partie-menu {
+    width: 60%;
+  }
+  .menu .partie-menu .mets {
+    cursor: pointer;
+  }
+  .conteneur-coeurs {
+    margin: 0 0 0 22px;
+    cursor: pointer;
+  }
+  main button {
+    cursor: pointer;
+  }
+}
+/**********     Version TABLETTE    **********/
+@media (min-width: 768px) and (max-width: 1023px) {
+  body {
+    grid-template-rows: 355px 45px auto auto;
+  }
+  body main {
+    width: 90%;
+    justify-self: center;
+  }
+  .menu .nom {
+    justify-content: center;
+    align-items: center;
+  }
+  .menu .partie-menu {
+    width: 80%;
+  }
+  .conteneur-coeurs {
+    margin: 0 0 0 22px;
+  }
+}
+/****** FOOTER restaurant ******/
+/****** FOOTER ******/
+footer {
+  background-color: #353535;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 25px;
+}
+footer h3 {
+  font-family: "Shrikhand", cursive;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  line-height: 26px;
+  color: white;
+}
+footer ul {
+  display: flex;
+  flex-flow: column;
+  gap: 7px;
+  list-style-type: none;
+}
+footer ul li a {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+}
+footer ul li a .fa-solid {
+  font-size: 16px;
+  margin-right: 12px;
+}
+footer ul li:nth-child(3) a, footer ul li:nth-child(4) a {
+  font-weight: 400;
+}
+
+/********** Footer DESKTOP **********/
+@media (min-width: 1024px) {
+  footer {
+    flex-flow: row-reverse;
+    align-items: flex-end;
+    height: 114px;
+    padding: 30px 25px;
+    box-sizing: border-box;
+  }
+  footer h3 {
+    width: 139px;
+  }
+  footer ul {
+    flex-flow: row nowrap;
+    gap: 15px;
+  }
+  footer ul li:nth-child(2) {
+    width: 190px;
+  }
+  footer ul li:nth-child(3), footer ul li:nth-child(4) {
+    width: 130px;
+  }
+}
+/********** Footer TABLETTE **********/
+@media (min-width: 768px) and (max-width: 1023px) {
+  footer {
+    padding: 30px 25px;
+  }
+  footer ul {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+  footer ul li:nth-child(2) {
+    width: 190px;
+  }
+  footer ul li:nth-child(3), footer ul li:nth-child(4) {
+    width: 130px;
+  }
+}
+footer {
+  grid-area: 4/1/5/2;
+}
+
+/*# sourceMappingURL=restaurants_pages.css.map */

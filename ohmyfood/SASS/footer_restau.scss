@@ -1,97 +1,86 @@
-/****** GENERAL ******/
-
-$principale :#9356DC;
-$couleur-2: #FF79DA;
-$couleur-3: #99E2D0;
-$ap-footer : #353535;
-$ap :#F6F6F6;
-
-@mixin petit-texte{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-}
-
-/****** FOOTER ******/
-
+/****** FOOTER restaurant ******/
+@import 'footer_styles';
 footer{
     grid-area: 4/1/5/2;
-    background-color: $ap-footer;
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 22px 25px;
-    & h3{
-        font-family: 'Shrikhand', cursive;
-        font-weight: 400;
-        font-style: italic;
-        font-size: 18px;
-        line-height: 26px;
-        color: white;
-    }
-    & ul{
-        display: flex;
-        flex-flow: column;
-        gap: 7px;
-        list-style-type: none;
-        & li a{
-            @include petit-texte;
-            color: white;
-        }
-        & li a .fa-solid{
-            font-size: 16px;
-            margin-right: 12px;
-        }
-        & li:nth-child(3) a, li:nth-child(4) a{
-            font-weight: 400;
-        }
-    }
 }
+// footer{
+//     grid-area: 4/1/5/2;
+//     background-color: $ap-footer;
+//     display: flex;
+//     flex-flow: column;
+//     align-items: flex-start;
+//     gap: 16px;
+//     padding: 22px 25px;
+//     & h3{
+//         font-family: 'Shrikhand', cursive;
+//         font-weight: 400;
+//         font-style: italic;
+//         font-size: 18px;
+//         line-height: 26px;
+//         color: white;
+//     }
+//     & ul{
+//         display: flex;
+//         flex-flow: column;
+//         gap: 7px;
+//         list-style-type: none;
+//         & li a{
+//             @include petit-texte;
+//             color: white;
+//         }
+//         & li a .fa-solid{
+//             font-size: 16px;
+//             margin-right: 12px;
+//         }
+//         & li:nth-child(3) a, li:nth-child(4) a{
+//             font-weight: 400;
+//         }
+//     }
+// }
 
-    /********** Footer DESKTOP **********/
+//     /********** Footer DESKTOP **********/
 
-    @media (min-width : 1024px){
-        footer{
-            flex-flow: row-reverse;
-            align-items: flex-end;
-            height: 114px;
-            padding: 30px 25px;
-            box-sizing: border-box;
-            & h3{
-                width: 139px;
-                
-            }
-            & ul{
-                flex-flow: row nowrap;
-                & li:nth-child(2){
-                    width: 190px;
-                    }
-                & li:nth-child(3), & li:nth-child(4){
-                    width: 130px;
-                    }
-                }
-        }
+//     @media (min-width : 1024px){
+//         footer{
+//             flex-flow: row-reverse;
+//             align-items: flex-end;
+//             height: 114px;
+//             padding: 30px 25px;
+//             box-sizing: border-box;
+//             & h3{
+//                 width: 139px;
+//             }
+//             & ul{
+//                 flex-flow: row nowrap;
+//                 gap: 15px;
+//                 & li:nth-child(2){
+//                     width: 190px;
+//                     }
+//                 & li:nth-child(3), & li:nth-child(4){
+//                     width: 130px;
+//                     }
+//                 }
+//         }
 
-    }
-       /********** Footer TABLETTE **********/ 
+//     }
+//        /********** Footer TABLETTE **********/ 
 
-       @media (min-width : 768px) and (max-width: 1023px){
-        footer{
-            padding: 30px 25px;
-            & ul{
-                flex-flow: row nowrap;
-                justify-content: space-between;
-                width: 100%;
-                & li:nth-child(2){
-                    width: 190px;
-                }
-                & li:nth-child(3), & li:nth-child(4){
-                    width: 130px;
-                }
-            }
-        }
+//        @media (min-width : 768px) and (max-width: 1023px){
+//         footer{
+//             padding: 30px 25px;
+//             & ul{
+//                 flex-flow: row nowrap;
+//                 justify-content: space-between;
+//                 width: 100%;
+//                 & li:nth-child(2){
+//                     width: 190px;
+//                 }
+//                 & li:nth-child(3), & li:nth-child(4){
+//                     width: 130px;
+//                 }
+//             }
+//         }
 
-    }
+//     }
 
     

@@ -1,34 +1,5 @@
-/****** GENERAL ******/
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-}
-
-$principale :#9356DC;
-$couleur-2: #FF79DA;
-$couleur-3: #99E2D0;
-$ap-footer : #353535;
-$ap :#F6F6F6;
-
-@mixin petit-texte{
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-}
-@mixin flex-centre{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 body{
     position: relative;
-}
-section{
-    display: flex;
-    flex-flow: column;
-    align-items: center;
 }
 h1, h2{
     font-weight: 700;
@@ -38,11 +9,8 @@ h1, h2{
 h2{
     align-self: flex-start;
 }
-a{
-    text-decoration: none;
-    color: black;
-}
 /****** LOADER ******/
+
 .chargement{
     @include flex-centre;
     position: absolute;
@@ -80,7 +48,6 @@ a{
         animation: rotation 1s ease 3;
     }
 }
-
 @keyframes apparition{
     from{
         visibility: visible;
@@ -104,6 +71,7 @@ a{
 
 .annonce{
     background-color: $ap;
+    padding: 0 0 57px 0;
     & h1{
         width: 66%;
         margin: 40px 0 14px;
@@ -118,14 +86,13 @@ a{
         text-align: center;
     }
 
-    /****** Styles et animation survol bouton ******/
+/****** Styles et animation survol bouton ******/
 
     & .bouton{
         @include flex-centre;
         width: 218px;
         height: 50px;
         border-radius: 25px;
-        margin-bottom: 57px;
         background: linear-gradient(  $couleur-2, $principale), $principale;
         box-shadow: 0 4px 10px 0 rgba(0,0,0,0.25);
         border: none;
@@ -134,12 +101,18 @@ a{
             text-align: center;
             color: white;
             @include petit-texte;
+            transition: all 400ms ease ;
         }  
     }
     & .bouton:hover{
         background: linear-gradient(  #ff89ea, #a366ec ), $principale;
         box-shadow: 0 8px 10px 0 rgba(0,0,0,0.30);
-        transform: scale(1.05);
+        height: 52px;
+        width: 229px;
+        margin-bottom: -2px;
+        & a{
+            font-size: 18px;
+        }
     }  
 }
 
@@ -314,11 +287,19 @@ a{
 }
 
 /********** Main Homepage DESKTOP *********/
+
 @media (min-width: 1024px){
+    body{
+        max-width: 1500px;
+        margin: auto;
+    }
     .annonce{
         h1{
         font-size: 40px;
         line-height: 47px;
+        }
+        & .bouton{
+            cursor: pointer;
         }
     }
     .fonctionnement{
@@ -355,6 +336,7 @@ a{
 }
 
 /********** Main Homepage TABLETTE *********/
+
 @media (min-width: 767px) and (max-width:1023px){
     .annonce{
         h1{
